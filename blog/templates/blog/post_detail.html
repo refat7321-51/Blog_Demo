@@ -1,0 +1,158 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ post.title }} — MyBlog{% endblock %}
+
+{% block content %}
+<div class="container mt-4 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- Post Card -->
+            <div class="card mb-4">
+                <div class="card-body p-4 p-md-5">
+                    <h2 class="fw-bold mb-3">{{ post.title }}</h2>
+                    <div class="d-flex align-items-center gap-3 flex-wrap mb-4">
+                        <span class="badge-author">
+                            <i class="fas fa-user me-1"></i>{{ post.author.username }}
+                        </span>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar-alt me-1"></i>{{ post.created_date|date:"F d, Y" }}
+                        </small>
+                        {% if post.updated_date != post.created_date %}
+                        <small class="text-muted">
+                            <i class="fas fa-edit me-1"></i>Updated: {{ post.updated_date|date:"M d, Y" }}
+                        </small>
+                        {% endif %}
+                    </div>
+
+                    <hr style="border-color:#e8eaf0;">
+                    <div class="post-body" style="font-size:1.05rem; line-height:1.85; color:#444;">
+                        {{ post.content|linebreaks }}
+                    </div>
+                    <hr style="border-color:#e8eaf0;">
+
+                    <!-- Like & Stats -->
+                    <div class="d-flex align-items-center gap-3 flex-wrap my-3">
+                        {% if user.is_authenticated %}
+                        <button id="like-btn" onclick="likePost({{ post.pk }})"
+                            class="btn like-btn {% if is_liked %}btn-danger{% else %}btn-outline-danger{% endif %} rounded-pill px-4">
+                            <i class="fas fa-heart me-1"></i>
+                            <span id="like-text">{% if is_liked %}Unlike{% else %}Like{% endif %}</span>
+                            (<span id="like-count">{{ total_likes }}</span>)
+                        </button>
+                        {% else %}
+                        <span class="btn btn-outline-danger rounded-pill px-4 disabled">
+                            <i class="fas fa-heart me-1"></i>{{ total_likes }} Likes
+                        </span>
+                        <small class="text-muted">
+                            <a href="/login/" class="text-decoration-none" style="color:#667eea;">Login</a> to like this post
+                        </small>
+                        {% endif %}
+                        <span class="text-muted">
+                            <i class="fas fa-comment-dots me-1 text-primary"></i>{{ comments.count }} Comments
+                        </span>
+                    </div>
+
+                    <!-- Author Actions -->
+                    {% if user == post.author %}
+                    <div class="d-flex gap-2 mt-3 pt-3 border-top">
+                        <a href="/post/{{ post.pk }}/edit/" class="btn btn-warning btn-sm px-3">
+                            <i class="fas fa-edit me-1"></i>Edit Post
+                        </a>
+                        <a href="/post/{{ post.pk }}/delete/" class="btn btn-danger btn-sm px-3">
+                            <i class="fas fa-trash-alt me-1"></i>Delete Post
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="card mb-4">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4" style="color:#2d3436;">
+                        <i class="fas fa-comments me-2" style="color:#667eea;"></i>
+                        Comments ({{ comments.count }})
+                    </h5>
+
+                    {% for comment in comments %}
+                    <div class="comment-box">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <strong style="color:#667eea; font-size:0.9rem;">
+                                <i class="fas fa-user-circle me-1"></i>{{ comment.author.username }}
+                            </strong>
+                            <small class="text-muted">{{ comment.created_date|date:"M d, Y" }}</small>
+                        </div>
+                        <p class="mb-0 mt-2" style="font-size:0.95rem; color:#555;">{{ comment.content }}</p>
+                    </div>
+                    {% empty %}
+                    <div class="text-center py-3">
+                        <i class="fas fa-comment-slash fa-2x text-muted mb-2"></i>
+                        <p class="text-muted">No comments yet. Start the conversation!</p>
+                    </div>
+                    {% endfor %}
+
+                    <!-- Add Comment Form -->
+                    <div class="mt-4 pt-3 border-top">
+                        {% if user.is_authenticated %}
+                        <h6 class="fw-bold mb-3">
+                            <i class="fas fa-pen me-2" style="color:#667eea;"></i>Leave a Comment
+                        </h6>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ comment_form.content }}
+                            <button type="submit" class="btn btn-primary mt-3 px-4">
+                                <i class="fas fa-paper-plane me-2"></i>Post Comment
+                            </button>
+                        </form>
+                        {% else %}
+                        <div class="alert alert-info d-flex align-items-center gap-2">
+                            <i class="fas fa-info-circle"></i>
+                            <span>
+                                <a href="/login/" class="fw-bold text-decoration-none">Login</a>
+                                or
+                                <a href="/register/" class="fw-bold text-decoration-none">Register</a>
+                                to join the conversation.
+                            </span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <a href="/" class="btn btn-secondary px-4">
+                <i class="fas fa-arrow-left me-2"></i>Back to Home
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function likePost(postId) {
+    fetch(`/post/${postId}/like/`, {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': '{{ csrf_token }}',
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('like-count').textContent = data.total_likes;
+        const btn = document.getElementById('like-btn');
+        const text = document.getElementById('like-text');
+        if (data.liked) {
+            btn.classList.remove('btn-outline-danger');
+            btn.classList.add('btn-danger');
+            text.textContent = 'Unlike';
+        } else {
+            btn.classList.remove('btn-danger');
+            btn.classList.add('btn-outline-danger');
+            text.textContent = 'Like';
+        }
+    })
+    .catch(err => console.error('Error:', err));
+}
+</script>
+{% endblock %}
