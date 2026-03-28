@@ -1,3 +1,6 @@
+### Website view
+https://mdrefat00.pythonanywhere.com/
+
 # MyBlog — Django Blog Website
 
 ## Setup Instructions
