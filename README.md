@@ -23,16 +23,4 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-### Step 5 — Open in Browser
-- Homepage:   http://127.0.0.1:8000/
-- Admin Panel: http://127.0.0.1:8000/admin/
-- Register:   http://127.0.0.1:8000/register/
-- Login:      http://127.0.0.1:8000/login/
 
-## Features
-- User Registration & Login
-- Create, Edit, Delete Blog Posts
-- Comment System
-- Like / Unlike Posts
-- Django Admin Panel
-- Responsive Bootstrap Design
