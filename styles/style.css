@@ -1,0 +1,701 @@
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.help{
+  text-align: center;
+}
+/* Banner Section */
+.banner-section {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('../images/PALESTINIANS-GAZA-AID.jpg') center/cover;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.banner-container {
+  padding: 2rem;
+  max-width: 800px;
+  opacity: 0;
+  animation: fadeIn 1s forwards 0.5s;
+}
+
+.banner-head {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  transform: translateY(-50px);
+  opacity: 0;
+  animation: slideDown 0.8s forwards 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  transform: translateY(50px);
+  opacity: 0;
+  animation: slideUp 0.8s forwards 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary {
+  padding: 15px 40px;
+  background: #e63946;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(0.95);
+  opacity: 0;
+  animation: fadeInScale 1s forwards 1.6s, pulse 2s infinite 3s;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background: #c1121f;
+  transform: scale(1.05);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(230, 57, 70, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
+  }
+}
+/* Donation Section Styles */
+.donation-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: #1d3557;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    color: #457b9d;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.donation-amounts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+.amount-option {
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none; /* Text selection বন্ধ করতে */
+}
+
+.amount-option:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.amount-option.selected {
+    background-color: #007bff; /* Selected হলে background */
+    color: white;             /* Selected হলে text color */
+    border-color: #0056b3;
+}
+
+.amount-option {
+    padding: 1rem 2rem;
+    background: #f1faee;
+    border: 2px solid #a8dadc;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.amount-option:hover {
+    background: #a8dadc;
+    color: white;
+}
+
+.amount-option.active {
+    background: #e63946;
+    color: white;
+    border-color: #e63946;
+}
+
+.custom-amount {
+    margin: 2rem 0;
+}
+
+.amount-input {
+    padding: 1rem;
+    width: 100%;
+    max-width: 400px;
+    border: 2px solid #a8dadc;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.donate-btn {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-weight: 600;
+}
+
+.donate-btn:hover {
+    background: #c1121f;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Donation Plans Section */
+.donation-plans {
+    padding: 4rem 0;
+    background: #f1faee;
+}
+
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.plan-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.plan-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.plan-card h3 {
+    color: #1d3557;
+    margin-bottom: 1rem;
+}
+
+/* Impact Section Styles */
+.impact-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.impact-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.impact-header h2 {
+    font-size: 2.5rem;
+    color: #1d3557;
+    margin-bottom: 20px;
+    line-height: 1.3;
+}
+
+.impact-subtitle {
+    color: #457b9d;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.impact-card {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 40px 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid #e63946;
+}
+
+.impact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.impact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.impact-card h3 {
+    color: #1d3557;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.impact-card p {
+    color: #6c757d;
+    line-height: 1.7;
+}
+
+/* Contribute Section */
+.contribute-section {
+    padding: 80px 0;
+    background: #f1faee;
+}
+
+.contribute-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.contribute-header h2 {
+    font-size: 2.5rem;
+    color: #1d3557;
+    margin-bottom: 20px;
+}
+
+.contribute-subtitle {
+    color: #457b9d;
+    font-size: 1.2rem;
+}
+
+.contribute-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.step {
+    text-align: center;
+    padding: 30px;
+    position: relative;
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    background: #e63946;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-number::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: rgba(230, 57, 70, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+.step h3 {
+    font-size: 1.4rem;
+    color: #1d3557;
+    margin-bottom: 15px;
+}
+
+.step p {
+    color: #6c757d;
+    line-height: 1.7;
+}
+
+/* Updates Section */
+.updates-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%);
+    color: white;
+    text-align: center;
+}
+
+.updates-header {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.updates-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.updates-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.updates-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    gap: 15px;
+}
+
+.updates-form input {
+    flex: 1;
+    padding: 18px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    min-width: 0;
+}
+
+.updates-form button {
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 0 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.updates-form button:hover {
+    background: #c1121f;
+    transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(1.3);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+Gaza Gallery Styles */ 
+.gaza-gallery {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.gallery-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.gallery-header h2 {
+    font-size: 2.5rem;
+    color: #1d3557;
+    margin-bottom: 20px;
+}
+
+.gallery-subtitle {
+    color: #457b9d;
+    font-size: 1.2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.03);
+}
+
+.gallery-item.full-width {
+    grid-column: 1 / -1;
+}
+
+.gallery-item.panorama img {
+    height: 400px;
+}
+
+.image-caption {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.image-story {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 30px;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .image-story {
+    transform: translateY(0);
+}
+
+.image-story h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.image-story p {
+    line-height: 1.6;
+    opacity: 0.9;
+} 
+
+/* ======================
+   Responsive Design
+   ====================== */
+
+/* Tablet Breakpoint (768px and below) */
+@media (max-width: 768px) {
+  /* Banner Section */
+  .banner-head {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .btn-primary {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+
+  /* Donation Section */
+  .donation-amounts {
+    gap: 0.5rem;
+  }
+  .amount-option {
+    padding: 0.8rem 1.2rem;
+  }
+  .section-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Impact/Contribute Sections */
+  .impact-header h2,
+  .contribute-header h2,
+  .updates-header h2 {
+    font-size: 2rem;
+  }
+
+  /* Updates Form */
+  .updates-form {
+    flex-direction: column;
+  }
+  .updates-form button {
+    padding: 18px 25px;
+    width: 100%;
+  }
+
+  /* Gallery */
+  .gallery-item img {
+    height: 350px;
+  }
+  .image-story {
+    padding: 20px;
+    transform: translateY(0);
+    background: rgba(0,0,0,0.7);
+  }
+  .image-story h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* Mobile Breakpoint (480px and below) */
+@media (max-width: 480px) {
+  /* Banner Section */
+  .banner-head {
+    font-size: 1.8rem;
+  }
+  .banner-container {
+    padding: 1rem;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-item.panorama img {
+    height: 300px;
+  }
+}
+
+/* Desktop Breakpoint (769px and above) */
+@media (min-width: 769px) {
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-item.full-width {
+    grid-column: 1 / -1;
+  }
+  .gallery-item.panorama img {
+    height: 500px;
+  }
+}
+
+
+.footer{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   padding: 2rem 9%;
+   background-color: var(--second-bg-color);
+}
+
+.footer-text p{
+   font-size: 20px;
+}
+
+.footer-iconTop a{
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   padding: .8rem;
+   background:var(--main-color) ;
+   border-radius: .8rem;
+   transform: .5s ease;
+}
+
+.footer-iconTop a:hover{
+   box-shadow: 0 0 1rem var(--main-color);
+}
+
+.footer-iconTop a i{
+   font-size: 2.4rem;
+   color: var(--second-bg-color);
+}

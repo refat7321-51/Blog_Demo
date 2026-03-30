@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <title>Donate</title>
+</head>
+
+<body>
+    <header>
+        <section class="banner-section container">
+            <div class="banner-container">
+                <h2 class="banner-head">Let's Help Those Who Are More In Need</h2>
+                <p class="description">"Help Gaza Now: Families are starving, hospitals overwhelmed, and hope is fading.
+                    Your donation can save lives. Give today." </p>
+
+                <button class="btn-primary">Donate Now</button>
+            </div>
+        </section>
+    </header>
+    <main>
+        <!-- Add this AFTER your existing banner section -->
+        <section class="donation-section container">
+            <div class="section-header">
+                <h2>Emergency Relief for Gaza</h2>
+                <p class="section-description">Families in Gaza are facing unimaginable hardship - your support provides
+                    food, medicine, and shelter to those who have lost everything.</p>
+            </div>
+
+            <div class="donation-amounts">
+                <div class="amount-option" data-amount="100">100tk</div>
+                <div class="amount-option" data-amount="200">200tk</div>
+                <div class="amount-option" data-amount="500">500tk</div>
+                <div class="amount-option" data-amount="1000">1000tk</div>
+                <div class="amount-option" data-amount="5000">5000tk</div>
+            </div>
+
+            <div class="custom-amount">
+                <input type="number" placeholder="Other Amount (Taka)" class="amount-input" id="customAmount">
+            </div>
+
+            <button class="donate-btn">Donate Now</button>
+        </section>
+
+        <section class="donation-plans container">
+            <div class="section-header">
+                <h2 class="help">How Your Donation Helps</h2>
+                <p class="section-description help">Every contribution makes a difference in the lives of Gaza's most
+                    vulnerable</p>
+            </div>
+
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-icon">🍞</div>
+                    <h3>Food Supplies</h3>
+                    <p>Provide emergency food packages to feed a family for one week</p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-icon">💊</div>
+                    <h3>Medical Aid</h3>
+                    <p>Deliver critical medicines and supplies to overwhelmed hospitals</p>
+                </div>
+                <div class="plan-card">
+                    <div class="plan-icon">🏠</div>
+                    <h3>Shelter</h3>
+                    <p>Help rebuild homes destroyed in the conflict</p>
+                </div>
+            </div>
+        </section>
+        <!-- Add this AFTER your previous donation section -->
+        <section class="impact-section">
+            <div class="container">
+                <div class="impact-header">
+                    <h2>Their Lives Depend On Your Donation</h2>
+                    <p class="impact-subtitle">In Gaza, every minute counts. Your support provides urgent life-saving
+                        aid to families struggling to survive.</p>
+                </div>
+
+                <div class="impact-grid">
+                    <div class="impact-card">
+                        <div class="impact-icon">❤️</div>
+                        <h3>Critical Needs</h3>
+                        <p>Over 1 million Gazans face severe food insecurity. Your donation provides emergency meals and
+                            clean water.</p>
+                    </div>
+                    <div class="impact-card">
+                        <div class="impact-icon">🏥</div>
+                        <h3>Medical Crisis</h3>
+                        <p>Hospitals are overwhelmed with 70% of medications depleted. Your support delivers vital
+                            medical supplies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contribute-section">
+            <div class="container">
+                <div class="contribute-header">
+                    <h2>How You Can Help</h2>
+                    <p class="contribute-subtitle">Your contribution makes an immediate difference in these three simple
+                        ways</p>
+                </div>
+
+                <div class="contribute-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Donate</h3>
+                        <p>Give any amount - even $10 can provide a family with clean water for a day</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Share</h3>
+                        <p>Spread awareness on social media to multiply your impact</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Advocate</h3>
+                        <p>Contact your representatives to demand humanitarian access</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gaza-gallery">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2>Through Their Eyes: Life in Gaza</h2>
+                    <p class="gallery-subtitle">These powerful images capture the resilience and suffering of
+                        Palestinian families</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Row 1 - Full width impactful image -->
+                    <div class="gallery-item full-width">
+                        <img src="./images/sad.jpg" alt="Destroyed building in Gaza">
+                        <div class="image-caption">Photo by: Ahmed Al Arini</div>
+                        <div class="image-story">
+                            <h3>Hunger's Grip: Desperation in the Face of Scarcity
+
+                            </h3>
+                            <p>The image powerfully depicts the profound hunger crisis in Gaza, as individuals reach out
+                                with empty pots, their faces reflecting a desperate search for food. It's a poignant
+                                testament to the immense hardships faced by the region's population, highlighting their
+                                daily struggle for basic sustenance.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2 - Two equal images -->
+                    <div class="gallery-item">
+                        <img src="./images/food.jpg" alt="Gaza hospital scene">
+                        <div class="image-caption">Photo by Ahmed Al Ajriri</div>
+                        <div class="image-story">
+                            <h3>Medicine Without Borders</h3>
+                            <p>Overworked doctors perform surgeries without anesthesia. Your support delivers critical
+                                medical supplies to overwhelmed hospitals.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="./images/gaza stri.jpg" alt="Food distribution in Gaza">
+                        <div class="image-caption">Photo by Ahmed Al Ajriri</div>
+                        <div class="image-story">
+                            <h3>Breadlines of Hope</h3>
+                            <p>Thousands wait daily for food rations in a territory where 63% face acute food
+                                insecurity. Your donation provides emergency meals.</p>
+                        </div>
+                    </div>
+
+                    <!-- Row 3 - Full width with different aspect ratio -->
+                    <div class="gallery-item full-width panorama">
+                        <img src="./images/hunger.jpg" alt="Gaza cityscape at dusk">
+                        <div class="image-caption">Photo by: Ahmed Al Arini</div>
+                        <div class="image-story">
+                            <h3>A City Under Siege</h3>
+                            <p>Gaza's skyline tells a story of resilience amidst destruction. 2.3 million people live in
+                                what the UN calls "uninhabitable" conditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="updates-section">
+            <div class="container">
+                <div class="updates-header">
+                    <h2>Stay Connected With Our Mission</h2>
+                    <p class="updates-subtitle">Receive updates on how your donation is making an impact in Gaza</p>
+                </div>
+
+                <form class="updates-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+      <footer class="footer">
+        <div class="footer-text">
+          <p>Copyright; 2025 by REFAT.. All Rights Reserved.</p>
+        </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const options = document.querySelectorAll('.amount-option');
+    const customInput = document.getElementById('customAmount');
+
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            // Custom input clear
+            customInput.value = '';
+
+            options.forEach(o => o.classList.remove('selected'));
+
+            option.classList.add('selected');
+        });
+    });
+
+   
+    customInput.addEventListener('input', () => {
+        options.forEach(o => o.classList.remove('selected'));
+    });
+});
+</script>
+
+</body>
+
+</html>
